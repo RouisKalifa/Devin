@@ -1,0 +1,12 @@
+# Ignorer les fichiers binaires de build
+/bin/
+/obj/
+/Properties/
+
+
+# Ignorer les fichiers de configuration de l'IDE
+*.config
+*.csproj
+
+
+
