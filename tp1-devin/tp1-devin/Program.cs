@@ -18,6 +18,28 @@ namespace tp1devin
             }
             return nb;
         }
+
+        // Fonction qui gère la saisie et validation de 'O' ou 'N'
+        static char ObtenirReponseON()
+        {
+            char reponse;
+            bool success;
+
+            Console.WriteLine("Souhaitez-vous faire une autre partie ? (O/N)");
+            success = char.TryParse(Console.ReadLine(), out reponse);
+
+            // Validation de la saisie
+            while (!success || (reponse != 'O' && reponse != 'N'))
+            {
+                Console.WriteLine("Vous devez entrer 'O' pour Oui ou 'N' pour Non.");
+                success = char.TryParse(Console.ReadLine(), out reponse);
+            }
+
+            return reponse;
+        }
+
+
+
         static void Main(string[] args)
         {
             //variable locales
@@ -25,7 +47,7 @@ namespace tp1devin
             char reponse;
 
 
-            bool success;
+            //bool success;
             bool success2; 
 
             const int NBCOUP = 5;
@@ -76,26 +98,22 @@ namespace tp1devin
                     Console.WriteLine("Votre nombre de tentatives a depasser 5 : perdu ");
                 }
                 //Console.ReadKey();
-                Console.WriteLine("soihaitez-vous faire une autre partie ? (O/N)");
-                success = char.TryParse(Console.ReadLine(), out reponse);
-                while(!success) 
-                {
-                    Console.WriteLine("vous devez entrer O ou N");
-                    success = char.TryParse(Console.ReadLine(), out reponse);
 
-                }
+                //Console.WriteLine("soihaitez-vous faire une autre partie ? (O/N)");
+                //success = char.TryParse(Console.ReadLine(), out reponse);
+                //while(!success) 
+                //{
+                //   Console.WriteLine("vous devez entrer O ou N");
+                //    success = char.TryParse(Console.ReadLine(), out reponse);
+
+                //}
                 // Validation de la réponse
-                while (reponse != 'O' && reponse != 'N')
-                {
-                    Console.WriteLine("Veuillez entrer 'O' pour Oui ou 'N' pour Non.");
-                    success2 = char.TryParse(Console.ReadLine(), out reponse);
-                    while (!success)
-                    {
-                        Console.WriteLine("vous devez entrer O ou N");
-                        success2 = char.TryParse(Console.ReadLine(), out reponse);
+                //while (reponse != 'O' && reponse != 'N')
+                reponse = ObtenirReponseON();
 
-                    }
-                }
+                nbu = SaisieNombre();
+
+
 
             } while (reponse != 'N');
         }
